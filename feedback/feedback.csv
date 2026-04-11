@@ -1,0 +1,3 @@
+timestamp,query,tool_name,feedback,session_id
+2026-04-11T04:28:02.688942,test query,Runway ML,useful,test-session
+2026-04-11T04:28:02.689443,test query,Runway ML,useful,test-session-2
