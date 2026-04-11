@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tool Finder — Discover the Right AI for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">AI<strong>Finder</strong></span>
+      </div>
+      <nav class="header-nav">
+        <button class="btn-retrain" id="retrainBtn" title="Retrain model with collected feedback">
+          ↺ Update Model
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">Powered by TF-IDF · Cosine Similarity · Feedback Learning</div>
+      <h1 class="hero-title">
+        Find the <span class="highlight">perfect AI tool</span><br/>for any problem
+      </h1>
+      <p class="hero-subtitle">
+        Describe what you want to accomplish — our ML engine matches you with the best AI tools available.
+      </p>
+
+      <!-- Search Box -->
+      <div class="search-container">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <textarea
+            id="queryInput"
+            placeholder="e.g. I want to create AI videos, remove image backgrounds, write marketing copy..."
+            rows="2"
+            maxlength="500"
+          ></textarea>
+          <button id="searchBtn" class="btn-search">
+            <span class="btn-text">Find Tools</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <div class="search-hints">
+          <span class="hint" data-q="I want to remove background from images">🖼 Remove backgrounds</span>
+          <span class="hint" data-q="I need to create AI videos automatically">🎬 Create AI videos</span>
+          <span class="hint" data-q="Help me write marketing copy and blog posts">✍ Write content</span>
+          <span class="hint" data-q="I want to generate music from text">🎵 Generate music</span>
+          <span class="hint" data-q="Autocomplete and debug my code">💻 Code assistant</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection" style="display:none">
+      <div class="results-header">
+        <h2 class="results-title">Recommendations for <em id="resultsQuery"></em></h2>
+        <p class="results-subtitle">Ranked by relevance · Click 👍 or 👎 to improve future results</p>
+      </div>
+      <div class="cards-grid" id="cardsGrid"></div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loading-overlay" id="loadingOverlay" style="display:none">
+      <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <p>Analyzing your query…</p>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Retrain Modal -->
+    <div class="modal-backdrop" id="modalBackdrop" style="display:none">
+      <div class="modal" id="retrainModal">
+        <h3>Model Updated</h3>
+        <p id="modalMsg">Retraining complete.</p>
+        <div class="modal-stats" id="modalStats"></div>
+        <button class="btn-close-modal" id="closeModal">Close</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>AIFinder · ML-Powered Recommendations · Feedback improves results over time</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='css/main.js') }}"></script>
+</body>
+</html>
