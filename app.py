@@ -29,7 +29,7 @@ def recommend():
         session["last_query"] = query
         return jsonify({"query": query, "recommendations": results})
     except Exception as exc:
-        retrun jsonify({"error": f"Recommendation failed: {str(exc)}"}), 500
+        return jsonify({"error": f"Recommendation failed: {str(exc)}"}), 500
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
